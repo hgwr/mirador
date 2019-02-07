@@ -85,14 +85,17 @@ class Window extends Component {
 Window.propTypes = {
   window: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   manifest: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  updateWindowPosition: PropTypes.func.isRequired,
-  setWindowSize: PropTypes.func.isRequired,
-  workspaceType: PropTypes.string.isRequired,
+  updateWindowPosition: PropTypes.func,
+  setWindowSize: PropTypes.func,
+  workspaceType: PropTypes.string,
 };
 
 Window.defaultProps = {
   window: null,
   manifest: null,
+  updateWindowPosition: () => {},
+  setWindowSize: () => {},
+  workspaceType: '',
 };
 
 export default Window;
