@@ -146,4 +146,24 @@ describe('window actions', () => {
       })).toEqual(expectedAction);
     });
   });
+
+  describe('updateWindowPosition', () => {
+    it('returns the appropriate action type', () => {
+      const id = 'abc123';
+      const expectedAction = {
+        type: ActionTypes.UPDATE_WINDOW_POSITION,
+        payload: {
+          windowId: id,
+          position: {
+            x: 20,
+            y: 20,
+          },
+        },
+      };
+      expect(actions.updateWindowPosition(id, {
+        x: 20,
+        y: 20,
+      })).toEqual(expectedAction);
+    });
+  });
 });
