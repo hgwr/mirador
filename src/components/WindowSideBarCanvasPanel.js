@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { withStyles } from '@material-ui/core/styles';
-import ValidationCanvas from './ValidationCanvas';
+import ManifestoCanvas from './ValidationCanvas';
 import CanvasThumbnail from './CanvasThumbnail';
 import { getIdAndLabelOfCanvases } from '../state/selectors';
 
@@ -29,14 +29,13 @@ class WindowSideBarCanvasPanel extends Component {
     } = this.props;
 
     const canvasesIdAndLabel = getIdAndLabelOfCanvases(canvases);
-
     return (
       <>
         <Typography variant="h2" className={classes.windowSideBarH2}>{t('canvasIndex')}</Typography>
         <List>
           {
             canvasesIdAndLabel.map((canvas, canvasIndex) => {
-              const validationCanvas = new ValidationCanvas(canvases[canvasIndex]);
+              const validationCanvas = new ManifestoCanvas(canvases[canvasIndex]);
               const isValid = validationCanvas.hasValidDimensions;
               const onClick = () => { setCanvas(windowId, canvasIndex); }; // eslint-disable-line require-jsdoc, max-len
 

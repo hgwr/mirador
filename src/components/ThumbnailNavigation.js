@@ -42,6 +42,8 @@ class ThumbnailNavigation extends Component {
       window, setCanvas, config, canvases,
     } = this.props;
     const canvas = canvases[columnIndex];
+    const manifestoCanvas = new ManifestoCanvas(canvas);
+
     return (
       <div
         key={key}
@@ -55,8 +57,9 @@ class ThumbnailNavigation extends Component {
           className={ns(['thumbnail-nav-canvas', `thumbnail-nav-canvas-${canvas.index}`, this.currentCanvasClass(canvas.index)])}
         >
           <CanvasThumbnail
+            isValid={manifestoCanvas.hasValidDimensions}
             onClick={() => setCanvas(window.id, canvas.index)}
-            imageUrl={new ManifestoCanvas(canvas).thumbnail(config.thumbnailNavigation.height)}
+            imageUrl={manifestoCanvas.thumbnail(config.thumbnailNavigation.height)}
             height={config.thumbnailNavigation.height}
           />
         </div>
@@ -71,7 +74,14 @@ class ThumbnailNavigation extends Component {
   calculateScaledWidth(options) {
     const { config, canvases } = this.props;
     const canvas = new ManifestoCanvas(canvases[options.index]);
-    return Math.floor(config.thumbnailNavigation.height * canvas.aspectRatio) + 8;
+    /*
+    if canvas provides valid dimensions return calculated width, based on height and aspectRatio,
+    otherweise return the default width
+    */
+    if (canvas.hasValidDimensions) {
+      return Math.floor(config.thumbnailNavigation.height * canvas.aspectRatio);
+    }
+    return config.thumbnailNavigation.width;
   }
 
   /**
