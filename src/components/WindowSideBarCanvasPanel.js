@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { withStyles } from '@material-ui/core/styles';
-import ManifestoCanvas from './ValidationCanvas';
+import ManifestoCanvas from '../lib/ManifestoCanvas';
 import CanvasThumbnail from './CanvasThumbnail';
 import { getIdAndLabelOfCanvases } from '../state/selectors';
 

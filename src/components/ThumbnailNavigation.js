@@ -79,7 +79,7 @@ class ThumbnailNavigation extends Component {
     otherweise return the default width
     */
     if (canvas.hasValidDimensions) {
-      return Math.floor(config.thumbnailNavigation.height * canvas.aspectRatio);
+      return Math.floor(config.thumbnailNavigation.height * canvas.aspectRatio) + 8;
     }
     return config.thumbnailNavigation.width;
   }
