@@ -42,13 +42,13 @@ export default class WindowViewSettings extends Component {
         <RadioGroup aria-label={t('position')} name="position" value={windowViewType} onChange={this.handleChange} row>
           <FormControlLabel
             value="single"
-            control={<Radio color="primary" icon={<PhotoIcon />} checkedIcon={<PhotoIcon />} />}
+            control={<Radio color="secondary" icon={<PhotoIcon />} checkedIcon={<PhotoIcon />} />}
             label={t('single')}
             labelPlacement="bottom"
           />
           <FormControlLabel
             value="book"
-            control={<Radio color="primary" icon={<ViewAgendaIconRotated />} checkedIcon={<ViewAgendaIconRotated />} />}
+            control={<Radio color="secondary" icon={<ViewAgendaIconRotated />} checkedIcon={<ViewAgendaIconRotated />} />}
             label={t('book')}
             labelPlacement="bottom"
           />
