@@ -18,6 +18,7 @@ import {
   getManifestThumbnail,
   getWindowViewType,
   getIdAndLabelOfCanvases,
+  getCompanionWindowsOfWindow,
 } from '../../../src/state/selectors';
 
 
@@ -345,5 +346,34 @@ describe('getCompanionWindowForPosition', () => {
     const received = getCompanionWindowForPosition(state, 'a', 'bottom');
 
     expect(received).toBeUndefined();
+  });
+});
+
+describe('getCompanionWindowsOfWindow', () => {
+  const state = {
+    windows: {
+      abc123: {
+        companionWindowIds: ['foo', 'bar'],
+      },
+    },
+    companionWindows: {
+      foo: {
+        id: 'foo',
+        content: 'info',
+      },
+      bar: {
+        id: 'bar',
+        content: 'canvas',
+      },
+    },
+  };
+
+  it('should return companion windows for a given window id', () => {
+    const received = getCompanionWindowsOfWindow(state, 'abc123');
+
+    expect(received).toEqual([
+      { id: 'foo', content: 'info' },
+      { id: 'bar', content: 'canvas' },
+    ]);
   });
 });
