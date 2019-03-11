@@ -942,7 +942,7 @@
           _this.annotationsList = _this.annotationsList.concat(_this.endpoint.annotationsList);
           // clear out some bad data
           _this.annotationsList = jQuery.grep(_this.annotationsList, function (value, index) {
-            if (typeof value.on === "undefined") {
+            if (typeof value === "undefined" || typeof value.on === "undefined") {
               return false;
             }
             return true;
