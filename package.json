@@ -45,7 +45,7 @@
     "openseadragon": "^2.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^17.0.1",
     "react-fullscreen-crossbrowser": "^1.0.9",
     "react-i18next": "^9.0.10",
     "react-mosaic-component": "^2.0.2",
