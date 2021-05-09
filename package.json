@@ -41,7 +41,7 @@
     "lodash": "^4.17.11",
     "manifesto.js": "^3.0.9",
     "node-fetch": "^2.3.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^6.0.0",
     "openseadragon": "^2.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
